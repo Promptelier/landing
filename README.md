@@ -26,4 +26,3 @@ Le tout : 100% gratuit à mettre en place (hébergement inclus).
 ```bash
 git clone https://github.com/TON-UTILISATEUR/newsletter-freelance-ia.git
 cd newsletter-freelance-ia
-
