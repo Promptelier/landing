@@ -4,63 +4,266 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Prompts IA pour Freelances — Newsletter Gratuite</title>
-  <meta name="description" content="Chaque semaine, reçois 1 prompt IA + 1 template d’email + 1 astuce pratique pour freelances.">
+  <meta name="description" content="Chaque semaine, reçois 1 prompt IA + 1 template d'email + 1 astuce pratique pour freelances.">
   <style>
-    body {
-      font-family: system-ui, sans-serif;
-      background: #f9fafb;
-      color: #222;
-      line-height: 1.6;
-      max-width: 720px;
-      margin: 40px auto;
-      padding: 0 1.5rem;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    h1, h2, h3 { color: #0a74da; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #1a202c;
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+      color: white;
+      padding: 60px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 30px 30px;
+      animation: slide 20s linear infinite;
+    }
+    
+    @keyframes slide {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(30px, 30px); }
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+      font-weight: 300;
+    }
+    
+    section {
+      padding: 50px 40px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    
+    section:last-of-type {
+      border-bottom: none;
+    }
+    
+    h2 {
+      color: #6366f1;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    ul {
+      list-style: none;
+      margin: 24px 0;
+    }
+    
+    li {
+      padding: 16px 0;
+      padding-left: 36px;
+      position: relative;
+      font-size: 1.05rem;
+    }
+    
+    li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 16px;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    
     .cta {
       display: inline-block;
-      background: #0a74da;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
       color: white;
-      padding: 12px 18px;
-      border-radius: 8px;
+      padding: 16px 32px;
+      border-radius: 12px;
       text-decoration: none;
       font-weight: 600;
-      margin-top: 12px;
+      margin-top: 20px;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+      position: relative;
+      overflow: hidden;
     }
-    .cta:hover { background: #095ab3; }
+    
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+    
+    .cta:hover::before {
+      left: 100%;
+    }
+    
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+    }
+    
+    .premium-section {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border-radius: 16px;
+      padding: 40px !important;
+      margin: 20px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .premium-section::before {
+      content: '⭐';
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      font-size: 80px;
+      opacity: 0.2;
+    }
+    
+    .premium-section h2 {
+      color: #d97706;
+    }
+    
+    .premium-section p {
+      color: #78350f;
+      font-size: 1.1rem;
+    }
+    
+    .premium-section .cta {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+    }
+    
+    .premium-section .cta:hover {
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.6);
+    }
+    
     footer {
-      margin-top: 40px;
+      background: #f9fafb;
+      padding: 40px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+    
+    footer p {
+      margin: 8px 0;
+    }
+    
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 20px;
       font-size: 0.85rem;
-      color: #666;
-      border-top: 1px solid #ddd;
-      padding-top: 1rem;
+      font-weight: 600;
+      margin-left: 12px;
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      section, .premium-section {
+        padding: 30px 24px !important;
+        margin: 20px 24px;
+      }
+      
+      header {
+        padding: 40px 24px;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Prompts & Templates IA pour Freelances</h1>
-    <p>Gagne du temps, décroche plus de clients, et automatise ta prospection avec l’IA.</p>
-  </header>
-
-  <section>
-    <h2>🚀 Ce que tu reçois</h2>
-    <ul>
-      <li>Chaque semaine : <strong>1 prompt IA + 1 template d’email + 1 astuce pratique</strong></li>
-      <li>Contenu testé et optimisé pour freelances francophones</li>
-      <li><strong>Bonus d’inscription :</strong> checklist “10 prompts indispensables pour décrocher un client”</li>
-    </ul>
-    <a class="cta" href="https://forms.gle/eQw2QBUbLQwwz6367" target="_blank">📬 S’inscrire gratuitement</a>
-  </section>
-
-  <section>
-    <h2>💼 Pack Premium</h2>
-    <p>Obtiens le <strong>Pack Freelance IA</strong> : 50 prompts + 20 templates prospection, relance, pitch, automatisation.</p>
-    <a class="cta" href="LIEN_GUMROAD" target="_blank">🔥 Acheter le pack (19€)</a>
-  </section>
-
-  <footer>
-    <p>Tu peux te désinscrire à tout moment. Tes données sont utilisées uniquement pour t'envoyer cette newsletter.</p>
-    <p>© 2025 Prompts Freelances IA — Tous droits réservés.</p>
-  </footer>
+  <div class="container">
+    <header>
+      <h1>🚀 Prompts & Templates IA pour Freelances</h1>
+      <p>Gagne du temps, décroche plus de clients, et automatise ta prospection avec l'IA</p>
+    </header>
+    
+    <section>
+      <h2>✨ Ce que tu reçois <span class="badge">100% Gratuit</span></h2>
+      <ul>
+        <li>Chaque semaine : <strong>1 prompt IA + 1 template d'email + 1 astuce pratique</strong></li>
+        <li>Contenu testé et optimisé pour freelances francophones</li>
+        <li><strong>Bonus d'inscription :</strong> checklist "10 prompts indispensables pour décrocher un client"</li>
+      </ul>
+      <a class="cta" href="https://forms.gle/eQw2QBUbLQwwz6367" target="_blank">📬 S'inscrire gratuitement</a>
+    </section>
+    
+    <div class="premium-section">
+      <h2>💼 Pack Premium</h2>
+      <p>Obtiens le <strong>Pack Freelance IA</strong> : 50 prompts + 20 templates prospection, relance, pitch, automatisation.</p>
+      <a class="cta" href="LIEN_GUMROAD" target="_blank">🔥 Acheter le pack (19€)</a>
+    </div>
+    
+    <footer>
+      <p><strong>Politique de confidentialité</strong></p>
+      <p>Tu peux te désinscrire à tout moment. Tes données sont utilisées uniquement pour t'envoyer cette newsletter.</p>
+      <p style="margin-top: 20px;">© 2025 Prompts Freelances IA — Tous droits réservés.</p>
+    </footer>
+  </div>
 </body>
 </html>
